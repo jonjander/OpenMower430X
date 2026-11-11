@@ -3,6 +3,7 @@
 Start at the [repository README](../README.md).
 
 - [Layout](layout.md)
+- [Open items](unknown.md)
 - [Lift sensor](lift-sensor.md)
 - [Collision sensor](collision-sensor.md)
 - [Battery](battery.md)
