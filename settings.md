@@ -43,6 +43,6 @@ Both drive files, the same:
 
 `l_slow_abs_current` stays 0. VESC developers have burned hardware by turning it on to hide a current fault.
 
-`configs/vesc_mcconf_cutter.xml` is the first FOC run, not a finished configuration. `enable_mower` stays `false`. The cutter direction is not set.
+`configs/vesc_mcconf_cutter.xml` is the first FOC run, not a finished configuration. The wizard values and the detection result are on the [motors](wheel-motor.md#foc-wizard-first-run) page. On this mower that detection behaved better with a load on the motors. `enable_mower` stays `false`. The cutter direction is not set.
 
 Reach an ESC with `openmower stop`, then `openmower expose-xesc` and `left`, `right`, or `mower`. VESC Tool connects over TCP to the mower, port 65102 for the left wheel. Ctrl+C and `openmower start` afterwards. ROS and VESC Tool must not share the UART.

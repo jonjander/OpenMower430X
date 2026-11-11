@@ -51,7 +51,38 @@ Stated for this mower on 2026-11-11. There are two black wires. The thinner blac
 
 The colors of those two unused wires were not named.
 
-The cutter was told apart from the drive motors by resistance, not by color. `configs/vesc_mcconf_cutter.xml` is the first FOC run. Motor R there is 0.632 Ω, so about 1.3 Ω between phase wires, against about 2.5 Ω on a drive motor. That file is not a finished configuration. `enable_mower` stays `false`.
+The cutter was told apart from the drive motors by resistance, not by color. `configs/vesc_mcconf_cutter.xml` is the first FOC run, from the wizard below. Motor R there is 0.632 Ω, so about 1.3 Ω between phase wires, against about 2.5 Ω on a drive motor. That file is not a finished configuration. `enable_mower` stays `false`.
+
+## FOC wizard, first run
+
+Run in VESC Tool on 2026-11-04. The motor that moved was the cutter. On this mower the detection behaved better with a load on the motors.
+
+The 430X has no motor profile in the [Configuring xESC](https://openmower.de/latest/docs/knowledge-base/configuration/configure-xesc/) guide. These are the values on the wizard screens, not the SABO figures on that page. A field left at the wizard preset is marked as such. It is not a measurement from this mower.
+
+| Page | What was on the screen |
+|---|---|
+| Usage | Generic. Override off |
+| Motor | Small Inrunner (~200 g). Override on. Max Power Loss 20.0 W |
+| Motor, left as the Small Inrunner preset | Openloop ERPM 1400, Sensorless ERPM 4000, Motor Poles 2 |
+| Battery | `BATTERY_TYPE_LION_3_0__4_2`, 5 cells, 5.200 Ah. Advanced off, so Battery Current Regen and Battery Current Max stayed at the shown 0.0 A, which is the wizard default |
+| Setup | Direct Drive on. Motor Temperature Sensor Type Disabled. Sensors: Hall |
+| Setup, left on the screen | Motor Pulley 13, Wheel Pulley 36, Wheel Diameter 83.00 mm, Motor Poles 2, thermistor beta 3380.0 K |
+
+Motor Poles 2 and the 83.00 mm wheel are the preset. The pulleys and the beta value do not apply while Direct Drive is on and the temperature sensor is disabled. The 5.200 Ah is one original pack. The parallel pair was decided later and is not what this wizard stored. The saved cutter file still has `si_battery_ah` 5.2, `si_battery_cells` 5, and battery cutoff 17.0 V / 15.0 V.
+
+Detection result, written to `configs/vesc_mcconf_cutter.xml`:
+
+| Result | Value |
+|---|---|
+| Motor current | 4.59 A |
+| Motor R | 632.40 mΩ |
+| Motor L | 1149.33 µH |
+| Motor Lq−Ld | 52.86 µH |
+| Motor Flux Linkage | 17.46 mWb |
+| Temp comp | false |
+| Sensors | Hall |
+
+The drive motors were calibrated after this run. Their saved current and duty limits are on [Settings on this mower](settings.md). Do not copy this cutter file onto a drive ESC.
 
 ## xESC2 carrier
 
