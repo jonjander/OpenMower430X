@@ -4,7 +4,11 @@ As this 430X stood on 2026-11-11. None of this is in an OpenMower guide. The 430
 
 ## In progress
 
-The cutting-height sensor and the cutting-height drive are in progress. The drive is the cylindrical motor whose shaft leaves through the shell, in the [layout](layout.md) photographs. Its connector is not traced. The sensor is not identified. No pinout for either one is settled.
+The cutting-height connector, slot polarity, and motor direction are documented in [Cutting height](cutting-height.md). Still open on that mechanism:
+
+- The pulse count from one mechanical end to the other.
+- Which of connector pin 1 and pin 2 is the red motor lead.
+- The winding resistance on this mower.
 
 ## Still unknown
 
